@@ -1,5 +1,14 @@
+/**
+ *  The FibSeq class generates and prints out the first 10 values of the fibonacci sequence.
+ */
 public class FibSeq {
     public static int n0 = 0, n1 = 1;
+
+    /**
+     * The fibPrintOut method prints out the "counter" number of values from the fibonacci sequence
+     *
+     * @param counter - number of fibonacci sequence values to print
+     */
     static void fibPrintOut(int counter){
 
         // first 2 values are hardcoded, so find (counter - 2) more values
