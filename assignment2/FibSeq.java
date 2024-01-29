@@ -5,30 +5,28 @@ public class FibSeq {
     public static int n0 = 0, n1 = 1;
 
     /**
-     * The fibPrintOut method prints out the "counter" number of values from the fibonacci sequence
+     * The fibNthValue method returns the Nth value from the fibonacci sequence
      *
-     * @param counter - number of fibonacci sequence values to print
+     * @param n - position of the fibonacci sequence value to return
+     * @return Nth value from the fibonacci sequence
      */
-    static void fibPrintOut(int counter){
+    static int fibNthValue(int n){
+        // Base cases
+        if (n == 0) return n0;
+        if (n == 1) return n1;
 
-        // first 2 values are hardcoded, so find (counter - 2) more values
-        // print static values, then generate the rest
-        if(n0 == 0 && n1 ==1){
-            System.out.print( 0 +" " + 1);
-            counter = counter - 2;
-        }
-        if(counter>0){
-            int n3 = n0 + n1;
-
+        // Calculate and return the Nth value
+        for (int i = 2; i <= n; i++) {
+            int temp = n0 + n1;
             n0 = n1;
-            n1 = n3;
-
-            System.out.print(" "+ n3);
-            fibPrintOut(counter-1);
+            n1 = temp;
         }
+
+        return n1;
     }
 
     public static void main(String[] args){
-        fibPrintOut(10);
+        int nthValue = fibNthValue(10);
+        System.out.println("The 10th value of the Fibonacci sequence is: " + nthValue);
     }
 }
