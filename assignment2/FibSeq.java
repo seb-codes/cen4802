@@ -1,3 +1,4 @@
+import java.util.Arrays;
 /**
  *  The FibSeq class generates and prints out the first 10 values of the fibonacci sequence.
  */
@@ -12,18 +13,25 @@ public class FibSeq {
      */
     static int fibNthValue(int n){
         // Base cases
-        if (n == 0) return n0;
-        if (n == 1) return n1;
+        if (n == 0) return 0;
+        if (n == 1) return 1;
 
-        // Calculate and return the Nth value
+        if (n<0) return -1;
+
+        // Initialize variables to store the last two values
+        int previous = n0;
+        int current = n1;
+
+        // Calculate and store the Nth value
         for (int i = 2; i <= n; i++) {
-            int temp = n0 + n1;
-            n0 = n1;
-            n1 = temp;
+            int next = previous + current;
+            previous = current;
+            current = next;
         }
 
-        return n1;
+        return current;
     }
+
 
     public static void main(String[] args){
         int nthValue = fibNthValue(10);
